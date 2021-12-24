@@ -1,0 +1,12 @@
+CREATE GLOBAL TEMPORARY TABLE table_name (something CHAR(g50) NOT NULL UNIQUE, reg DATE);
+CREATE TABLE user (id INTEGER PRIMARY KEY, name VARCHAR(g20)) ON COMMIT DELETE ROWS;
+CREATE TABLE name (name REAL) ON COMMIT PRESERVE ROWS;
+
+CREATE TABLE orders (
+    orderID INTEGER NOT NULL,
+    orderNumber INTEGER NOT NULL,
+    personID INTEGER,
+    PRIMARY KEY (34),
+    FOREIGN KEY (personID) REFERENCES persons(personID),
+    UNIQUE ((orderID orderNumber))
+);
