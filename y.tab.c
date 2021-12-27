@@ -1,4 +1,4 @@
-/* A Bison parser, made by GNU Bison 3.8.1.  */
+/* A Bison parser, made by GNU Bison 3.8.2.  */
 
 /* Bison implementation for Yacc-like parsers in C
 
@@ -46,10 +46,10 @@
    USER NAME SPACE" below.  */
 
 /* Identify Bison output, and Bison version.  */
-#define YYBISON 30801
+#define YYBISON 30802
 
 /* Bison version string.  */
-#define YYBISON_VERSION "3.8.1"
+#define YYBISON_VERSION "3.8.2"
 
 /* Skeleton name.  */
 #define YYSKELETON_NAME "yacc.c"
@@ -72,15 +72,18 @@
  #include <stdio.h>
  #include <stdlib.h>
  #include <locale.h>
- #define YYERROR_VERBOSE 1
+//  #define YYERROR_VERBOSE 1
 
     int yylex();
     int yywrap();
     extern int line;
-    int errcount = 1;
+    int errCount = 1;
+
+    void yyerror(const char* errStr);
+
  
 
-#line 84 "y.tab.c"
+#line 87 "y.tab.c"
 
 # ifndef YY_CAST
 #  ifdef __cplusplus
@@ -611,7 +614,7 @@ union yyalloc
 /* YYNRULES -- Number of rules.  */
 #define YYNRULES  65
 /* YYNSTATES -- Number of states.  */
-#define YYNSTATES  116
+#define YYNSTATES  115
 
 /* YYMAXUTOK -- Last valid token kind.  */
 #define YYMAXUTOK   289
@@ -663,13 +666,13 @@ static const yytype_int8 yytranslate[] =
 /* YYRLINE[YYN] -- Source line where rule number YYN was defined.  */
 static const yytype_uint8 yyrline[] =
 {
-       0,    49,    49,    50,    54,    56,    58,    59,    61,    63,
-      64,    67,    68,    71,    72,    75,    76,    79,    80,    81,
-      81,    85,    88,    89,    90,    91,    95,    96,    97,   100,
-     101,   102,   103,   103,   106,   107,   110,   111,   114,   115,
-     116,   120,   121,   121,   122,   123,   124,   124,   125,   128,
-     129,   130,   130,   131,   132,   133,   134,   135,   139,   140,
-     141,   144,   144,   144,   147,   150
+       0,    52,    52,    53,    57,    59,    61,    62,    64,    66,
+      67,    70,    71,    74,    75,    78,    79,    82,    83,    84,
+      84,    88,    91,    92,    93,    94,    98,    99,   100,   103,
+     104,   105,   106,   106,   109,   110,   113,   114,   117,   118,
+     119,   123,   124,   124,   125,   126,   127,   127,   128,   132,
+     133,   134,   134,   135,   136,   137,   138,   139,   143,   144,
+     145,   148,   148,   148,   151,   154
 };
 #endif
 
@@ -728,9 +731,9 @@ static const yytype_int8 yypact[] =
       20,    55,    56,   -29,   -29,   -29,    36,   -29,   -29,    49,
       -2,   -29,   -29,    53,   -29,    64,    74,   -29,    57,   -29,
       58,   -29,    37,    59,    60,   -29,   -29,    69,    70,   -21,
-     -29,   -29,   -29,   -29,    61,   -29,    67,   -29,    63,    71,
-     -29,   -29,   -29,    76,   -29,    13,   -29,    65,   -29,    68,
-      81,    51,   -29,   -29,   -29,   -29
+     -29,   -29,   -29,   -29,    61,   -29,    62,   -29,    63,    71,
+     -29,   -29,   -29,    76,   -29,    13,   -29,   -29,   -29,    65,
+      81,    51,   -29,   -29,   -29
 };
 
 /* YYDEFACT[STATE-NUM] -- Default reduction number in state STATE-NUM.
@@ -748,14 +751,14 @@ static const yytype_int8 yydefact[] =
       22,    30,    17,     0,    18,     0,     0,    46,     0,    42,
        0,    51,     0,     0,     0,    37,    33,     0,     0,     0,
       24,    20,     9,    10,     0,    45,     0,    41,     0,     0,
-      50,    55,    60,    26,    27,     0,    47,     0,    52,     0,
-       0,    23,    43,    49,    28,    25
+      50,    55,    60,    26,    27,     0,    47,    43,    52,     0,
+       0,    23,    49,    28,    25
 };
 
 /* YYPGOTO[NTERM-NUM].  */
 static const yytype_int8 yypgoto[] =
 {
-     -29,   -29,    98,   -29,   -29,   -29,    72,   -29,   -29,   -29,
+     -29,   -29,    97,   -29,   -29,   -29,    67,   -29,   -29,   -29,
      -29,   -29,   -10,   -28,   -29,   -29,   -29,   -29,   -29,   -29,
      -29,   -29,   -29,   -29,    40,   -15,    54
 };
@@ -782,8 +785,8 @@ static const yytype_int8 yytable[] =
       40,   105,    41,    42,    33,    34,    13,    99,   100,    87,
       88,    31,    14,    32,    56,    92,    58,    59,    60,    61,
       62,    83,    84,    20,    91,    93,   103,   104,    95,    97,
-     101,   102,   106,   107,   108,   110,   112,   109,   114,   113,
-       8,   115,     0,    70,     0,    55,    85
+     101,   102,   106,   107,   108,   110,   112,   109,   113,     8,
+      55,   114,     0,    70,     0,     0,    85
 };
 
 static const yytype_int8 yycheck[] =
@@ -797,8 +800,8 @@ static const yytype_int8 yycheck[] =
       25,    89,    27,    28,    30,    31,    33,    30,    31,    18,
       19,    32,    34,    32,     8,    11,    32,    32,    32,    32,
       32,    26,    26,    34,    31,    11,    17,    17,    31,    31,
-      31,    31,    31,    26,    31,    19,    31,    26,    17,    31,
-       2,   111,    -1,    49,    -1,    33,    66
+      31,    31,    31,    31,    31,    19,    31,    26,    17,     2,
+      33,   111,    -1,    49,    -1,    -1,    66
 };
 
 /* YYSTOS[STATE-NUM] -- The symbol kind of the accessing symbol of
@@ -815,8 +818,8 @@ static const yytype_int8 yystos[] =
       61,    60,    31,    44,    31,     9,    10,     1,    26,     1,
       26,     1,    26,    26,    26,    59,    60,    18,    19,    32,
       47,    31,    11,    11,    55,    31,    54,    31,    57,    30,
-      31,    31,    31,    17,    17,    48,    31,    26,    31,    26,
-      19,    31,    31,    31,    17,    47
+      31,    31,    31,    17,    17,    48,    31,    31,    31,    26,
+      19,    31,    31,    17,    47
 };
 
 /* YYR1[RULE-NUM] -- Symbol kind of the left-hand side of rule RULE-NUM.  */
@@ -838,7 +841,7 @@ static const yytype_int8 yyr2[] =
        3,     1,     3,     1,     1,     1,     1,     4,     4,     0,
        5,     3,     2,     5,     3,     6,     2,     2,     4,     1,
        3,     3,     0,     4,     2,     3,     1,     2,     1,     1,
-       1,     4,     0,     6,     1,     4,     0,     5,     1,     6,
+       1,     4,     0,     5,     1,     4,     0,     5,     1,     6,
        4,     0,     5,     1,     1,     4,     1,     1,     1,     1,
        4,     1,     1,     1,     1,     1
 };
@@ -1304,49 +1307,49 @@ yyreduce:
   switch (yyn)
     {
   case 2: /* base: base create SEMICOLON  */
-#line 49 "yacc.y"
+#line 52 "yacc.y"
                                     {printf("-----------------complete----------------- \n");}
-#line 1310 "y.tab.c"
+#line 1313 "y.tab.c"
     break;
 
   case 3: /* base: create SEMICOLON  */
-#line 50 "yacc.y"
+#line 53 "yacc.y"
                                     {printf("-----------------complete----------------- \n");}
-#line 1316 "y.tab.c"
+#line 1319 "y.tab.c"
     break;
 
   case 19: /* $@1: %empty  */
-#line 81 "yacc.y"
+#line 84 "yacc.y"
                          {yyerror("Wrong PRIMARY KEY decration");}
-#line 1322 "y.tab.c"
+#line 1325 "y.tab.c"
     break;
 
   case 32: /* $@2: %empty  */
-#line 103 "yacc.y"
+#line 106 "yacc.y"
                      {yyerror("Need a COMMA in fiels declaration");}
-#line 1328 "y.tab.c"
+#line 1331 "y.tab.c"
     break;
 
   case 42: /* $@3: %empty  */
-#line 121 "yacc.y"
-                  {yyerror("Wrong CHAR type"); yyerrok;}
-#line 1334 "y.tab.c"
+#line 124 "yacc.y"
+                  {yyerror("Wrong CHAR type");}
+#line 1337 "y.tab.c"
     break;
 
   case 46: /* $@4: %empty  */
-#line 124 "yacc.y"
+#line 127 "yacc.y"
                      {yyerror("Wrong VARCHAR type");}
-#line 1340 "y.tab.c"
+#line 1343 "y.tab.c"
     break;
 
   case 51: /* $@5: %empty  */
-#line 130 "yacc.y"
+#line 134 "yacc.y"
                      {yyerror("Wrong NUMERIC type");}
-#line 1346 "y.tab.c"
+#line 1349 "y.tab.c"
     break;
 
 
-#line 1350 "y.tab.c"
+#line 1353 "y.tab.c"
 
       default: break;
     }
@@ -1539,11 +1542,11 @@ yyreturnlab:
   return yyresult;
 }
 
-#line 151 "yacc.y"
+#line 155 "yacc.y"
 
-void yyerror(char *errstr)
-{
-    fprintf(stderr,"\nerror: %s in line %d, current error: %d \n", errstr, line, errcount);
-    errcount++;
-    if (errcount > 3) {exit(-1);}
-}
+    void yyerror(const char* errStr)
+    {
+        printf("\nerror: %s in line %d, current error: %d \n", errStr, line, errCount);
+        errCount++;
+        if (errCount > 3) {exit(-1);}
+    }

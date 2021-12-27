@@ -7,7 +7,10 @@
     int yylex();
     int yywrap();
     extern int line;
-    int errcount = 1;
+    int errCount = 1;
+
+    void yyerror(const char* errStr);
+
  
 %}
 %token  CREATE
@@ -118,11 +121,12 @@ field_type:
 
 char_type:      
     CHAR LB NUMBER RB     |
-    CHAR LB error {yyerror("Wrong CHAR type"); yyerrok;} NUMBER RB  |
+    CHAR LB error {yyerror("Wrong CHAR type");} RB  |
     CHAR                  |
     VARCHAR LB NUMBER RB  |
     VARCHAR LB error {yyerror("Wrong VARCHAR type");} RB |
     VARCHAR               ;
+    
 
 numeric_type:   
     NUMERIC LB NUMBER COMMA NUMBER RB |
@@ -149,9 +153,9 @@ field_name:
 table_name:
     IDENTIFIERE;
 %%
-void yyerror(char *errstr)
-{
-    fprintf(stderr,"\nerror: %s in line %d, current error: %d \n", errstr, line, errcount);
-    errcount++;
-    if (errcount > 3) {exit(-1);}
-}
+    void yyerror(const char* errStr)
+    {
+        printf("\nerror: %s in line %d, current error: %d \n", errStr, line, errCount);
+        errCount++;
+        if (errCount > 3) {exit(-1);}
+    }

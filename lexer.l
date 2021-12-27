@@ -1,6 +1,6 @@
 %{
     // ToDo: Разбить токены до минимума
-    #include "yacc.tab.h"
+    #include "y.tab.h"
     int line = 1;
 %}
 
@@ -51,17 +51,17 @@ DATE         {printf("DATE"); return(DATE);}
 \(                                          {printf("LB"); return  (LB);}
 \;                                          {printf("SEMICOLON"); return  (SEMICOLON);}
 [ \t]+                                      printf(" ");
-.                                           yyerror("Unexpected symbol");
+
 
 %%
 
  int main(int argc, char* argv[]) {
-  FILE* myfile = fopen("test.txt", "r");
-  if (!myfile) {
-    printf("Problem ;with opening file!");
+  FILE* myFile = fopen("test.txt", "r");
+  if (!myFile) {
+    printf("Problem with opening file!");
     return -1;
   }
-  yyin = myfile;
+  yyin = myFile;
   
   yyparse();
   return(0); 

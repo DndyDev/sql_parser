@@ -351,8 +351,8 @@ static void yynoreturn yy_fatal_error ( const char* msg  );
 	(yy_hold_char) = *yy_cp; \
 	*yy_cp = '\0'; \
 	(yy_c_buf_p) = yy_cp;
-#define YY_NUM_RULES 39
-#define YY_END_OF_BUFFER 40
+#define YY_NUM_RULES 38
+#define YY_END_OF_BUFFER 39
 /* This struct is not used in this scanner,
    but its presence is necessary. */
 struct yy_trans_info
@@ -362,7 +362,7 @@ struct yy_trans_info
 	};
 static const flex_int16_t yy_accept[193] =
     {   0,
-        0,    0,   40,   38,   37,   33,   35,   34,   32,   29,
+        0,    0,   39,   38,   37,   33,   35,   34,   32,   29,
        36,   30,   30,   30,   30,   30,   30,   30,   30,   30,
        30,   30,   30,   30,   30,   30,   31,   37,   29,   31,
        31,   31,   31,   31,   31,   31,   31,   31,   31,   31,
@@ -555,7 +555,7 @@ char *yytext;
 #line 1 "lexer.l"
 #line 2 "lexer.l"
     // ToDo: Разбить токены до минимума
-    #include "yacc.tab.h"
+    #include "y.tab.h"
     int line = 1;
 #line 560 "lex.yy.c"
 #line 561 "lex.yy.c"
@@ -1016,15 +1016,10 @@ printf(" ");
 	YY_BREAK
 case 38:
 YY_RULE_SETUP
-#line 54 "lexer.l"
-yyerror("Unexpected symbol");
-	YY_BREAK
-case 39:
-YY_RULE_SETUP
 #line 56 "lexer.l"
 ECHO;
 	YY_BREAK
-#line 1027 "lex.yy.c"
+#line 1022 "lex.yy.c"
 case YY_STATE_EOF(INITIAL):
 	yyterminate();
 
@@ -2033,12 +2028,12 @@ void yyfree (void * ptr )
 
 
  int main(int argc, char* argv[]) {
-  FILE* myfile = fopen("test.txt", "r");
-  if (!myfile) {
-    printf("Problem ;with opening file!");
+  FILE* myFile = fopen("test.txt", "r");
+  if (!myFile) {
+    printf("Problem with opening file!");
     return -1;
   }
-  yyin = myfile;
+  yyin = myFile;
   
   yyparse();
   return(0); 
